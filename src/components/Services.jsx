@@ -1,0 +1,3 @@
+
+import React from 'react'
+export default function Services(){ const services=[{icon:'🎨',title:'Brand Identity',desc:'Membangun citra visual yang kuat'},{icon:'📱',title:'UI/UX Design',desc:'Membuat antarmuka yang elegan'},{icon:'🖋️',title:'Illustration',desc:'Gaya ilustrasi khas'},{icon:'📸',title:'Photo Editing',desc:'Retouch & compositing'}]; return (<div className='grid sm:grid-cols-2 gap-4'>{services.map(s=>(<div key={s.title} className='glass p-4 rounded-xl'><div className='text-3xl mb-2'>{s.icon}</div><h4 className='font-semibold'>{s.title}</h4><p className='text-sm opacity-75'>{s.desc}</p></div>))}</div>) }

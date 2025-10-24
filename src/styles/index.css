@@ -1,0 +1,76 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{--primary:#5301B4;--secondary:#6E26D8;--accent:#FB63AC;--content:#101012}
+html.dark{color-scheme:dark}
+html,body,#root{height:100%}
+body{margin:0;font-family:'Poppins',system-ui;background:transparent;color:var(--content)}
+.aurora-wrap{position:fixed;inset:0;z-index:-20;pointer-events:none;overflow:hidden}
+.aurora-layer{position:absolute;width:140vw;height:140vh;top:-20vh;left:-20vw;filter:blur(120px);opacity:0.45;mix-blend-mode:screen;transition:background .5s, opacity .5s}
+html.dark .aurora-layer{opacity:0.35}
+.glass{background:rgba(255,255,255,0.6);border-radius:1rem;border:1px solid rgba(255,255,255,0.68);backdrop-filter:blur(10px) saturate(120%);-webkit-backdrop-filter:blur(10px) saturate(120%);box-shadow:0 12px 40px rgba(2,6,23,0.06)}
+html.dark .glass{background:rgba(10,10,12,0.48);border:1px solid rgba(255,255,255,0.04);box-shadow:0 12px 40px rgba(0,0,0,0.6);color:#ECECEC}
+.h1-gradient{background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 200%;animation:gradMove 6s linear infinite}
+@keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.btn-gradient-move{position:relative;overflow:hidden;border-radius:.75rem}
+.btn-gradient-move::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));filter:blur(14px);transform:translateX(-40%);transition:transform .6s ease;opacity:.95}
+.btn-gradient-move:hover::before{transform:translateX(0)}
+.custom-cursor{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:9999px;pointer-events:none;transform:translate(-50%,-50%);transition:width .12s,height .12s,transform .12s;z-index:90}
+.custom-cursor.large{width:36px;height:36px;background:rgba(110,38,216,0.12)}
+#theme-overlay{position:fixed;inset:0;pointer-events:none;z-index:60;background:radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.92) 1%, rgba(255,255,255,0) 40%);opacity:0;transform:scale(0.001);transition:opacity .45s ease,transform .7s cubic-bezier(.2,.9,.2,1);mix-blend-mode:screen}
+html.dark #theme-overlay{background:radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(10,10,12,1) 0%, rgba(10,10,12,1) 1%, rgba(10,10,12,0) 40%)}
+#theme-overlay.active{opacity:1;transform:scale(40)}
+.header-spacer{height:96px}
+@media (max-width:768px){.header-spacer{height:76px}}
+/* ===== AURORA BUTTON EFFECT ===== */
+.aurora-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    270deg,
+    #ff00c8,
+    #6e00ff,
+    #00fff2,
+    #00ff85,
+    #ff00c8
+  );
+  background-size: 400% 400%;
+  animation: aurora-move 10s linear infinite;
+  z-index: 0;
+  opacity: 0.9;
+  filter: blur(0.3px);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.aurora-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.25),
+    transparent 60%
+  );
+  mix-blend-mode: overlay;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.aurora-btn:hover::before {
+  filter: brightness(1.2);
+  opacity: 1;
+}
+
+@keyframes aurora-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -400% 50%;
+  }
+}
+

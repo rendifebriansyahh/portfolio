@@ -1,0 +1,1 @@
+import React from 'react'; export default function InteractiveProfile({ small }){ return (<div className={small? 'w-full h-full' : 'w-40 h-40'}><img src='/assets/profile.png' alt='Rendi Febriansyah' className='w-full h-full object-cover rounded-full' loading='lazy' /></div>) }
